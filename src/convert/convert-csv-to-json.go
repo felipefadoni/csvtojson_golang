@@ -1,4 +1,4 @@
-package gerar
+package convert
 
 import (
 	"encoding/csv"
@@ -9,33 +9,7 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-func Gerar() *cli.App {
-	app := cli.NewApp()
-	app.Name = "Aplicação de linha de comando para gerar converter CSV em JSON"
-	app.Usage = "Converter CSV em JSON"
-
-	app.Commands = []*cli.Command{
-		{
-			Name:  "csv",
-			Usage: "Converter CSV em JSON",
-			Flags: []cli.Flag{
-				&cli.StringFlag{
-					Name:  "origin",
-					Value: "",
-				},
-				&cli.StringFlag{
-					Name:  "output",
-					Value: "",
-				},
-			},
-			Action: convertCsvToJson,
-		},
-	}
-
-	return app
-}
-
-func convertCsvToJson(c *cli.Context) error {
+func ConvertCsvToJson(c *cli.Context) error {
 	origin := c.String("origin")
 	if origin == "" {
 		log.Fatal("É necessário informar o caminho do arquivo CSV")

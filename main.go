@@ -4,7 +4,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/felipefadoni/csvtojson_golang/src/gerar"
+	gerar "github.com/felipefadoni/csvtojson_golang/src/convert"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -12,7 +12,7 @@ func main() {
 	startTime := time.Now()
 	log.Info("Start CLI! - ", startTime)
 
-	application := gerar.Gerar()
+	application := gerar.Convert()
 
 	err := application.Run(os.Args)
 	if err != nil {
